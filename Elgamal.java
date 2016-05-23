@@ -121,4 +121,16 @@ public class Elgamal {
         }while(res.compareTo(N)==1);
         return res;
     }
+    
+    BigInteger division(BigInteger haut, BigInteger bas)
+    {
+        BigInteger res;
+        BigInteger tmp = haut;
+        do{
+            haut = tmp;
+            res = haut.divide(bas);
+            tmp = haut.add(p);
+        }while (res.multiply(bas).compareTo(haut)!=0);
+        return res;
+    }
 }
